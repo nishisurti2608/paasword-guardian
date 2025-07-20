@@ -3,21 +3,27 @@ import { LuBrain } from "react-icons/lu";
 import { Md123 } from "react-icons/md";
 import { FaArrowRight } from "react-icons/fa6";
 import { PiPasswordDuotone } from "react-icons/pi";
-
 import { IoLockClosed } from "react-icons/io5";
-
-
-
-
-
 import { MdAbc } from "react-icons/md";
+import { useRef } from "react";
+import PasswordChecker from "./components/PasswordChecker";
+
 
 function App() {
-  
+
+  const passwordSection = useRef(null)
+  function handlePassword(){
+
+  passwordSection.current.scrollIntoView({ behavior: "smooth" })
+
+
+  }
+
+
   return (
     <>
-    <main className="bg-[#fcfbf8] items-center  h-screen flex flex-col justify-center">
-    <p className="text-[#020917] w-1/2 text-6xl font- font-semibold text-center">Your Personal <span className="text-[#4b73ff]">Credential Guard</span></p>
+    <main className="bg-[#fcfbf8] items-center flex flex-col justify-center">
+    <p className="text-[#020917] w-1/2 text-6xl font- font-semibold text-center mt-40">Your Personal <span className="text-[#4b73ff]">Credential Guard</span></p>
     <p className="text-[#65748b] w-1/3 text-center text-xl font-medium mt-4 mb-3">Every password checked, every weakness spotted your personal security scanner that never sleeps.</p>
     
     <div className="flex justify-between items-center">
@@ -49,11 +55,13 @@ function App() {
   
 
       <PiPasswordDuotone className="size-18 m-4 bg-gray-200 border-2 rounded-2xl border-gray-300 text-gray-500 " />
-      <IoLockClosed className="size-18 m-4  p-3 bg-gray-200 border-2 rounded-2xl border-gray-300 text-[#4b73ff]" />
+      <IoLockClosed className="size-18 p-4 m-4 bg-gray-200 border-2 rounded-2xl border-gray-300 text-[#4b73ff]" />
      </div>
   
     </div>
-    <button className="text-white bg-[#10172A] px-8 py-3 rounded-4xl  my-20 ml-8">Check Now</button> 
+    <button className="text-white bg-[#10172A] hover:bg-zinc-700 px-8 py-3 rounded-4xl cursor-pointer  my-20 ml-8" onClick={handlePassword}>Check Now</button> 
+  
+    <PasswordChecker ref={passwordSection}/>
     </main>
 
     
